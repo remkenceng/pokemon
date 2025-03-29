@@ -1,1 +1,11 @@
 secure/
+bot/
+config/
+files/
+menu/
+ssh/
+udp-custom
+noobzvpns.zip
+install.sh
+proses_install.ssh
+proses_update.sh
