@@ -1,10 +1,11 @@
 #!/bin/bash
 
 # =============================================
-# COLOR DEFINITIONS (Optimized for readability)
+# COLOR DEFINITIONS
 # =============================================
 clear
-# Base Colors
+
+# Text Colors
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -20,7 +21,7 @@ BG_GREEN='\033[42m'
 BG_YELLOW='\033[43m'
 
 # =============================================
-# SYSTEM INFORMATION (Complete)
+# SYSTEM INFORMATION
 # =============================================
 get_system_info() {
     MODEL=$(grep -w PRETTY_NAME /etc/os-release | cut -d= -f2 | tr -d '"')
@@ -41,7 +42,7 @@ get_system_info() {
 }
 
 # =============================================
-# LICENSE CHECK (Complete)
+# LICENSE CHECK
 # =============================================
 check_license() {
     LICENSE_CHECK_URL="https://raw.githubusercontent.com/remkenceng/pokemon/main/izin/ip"
@@ -80,7 +81,7 @@ check_license() {
 }
 
 # =============================================
-# SERVICE MANAGEMENT (Complete)
+# SERVICE MANAGEMENT
 # =============================================
 check_service() {
     if systemctl is-active --quiet "$1"; then
@@ -95,12 +96,12 @@ get_service_status() {
     NGINX_STATUS=$(check_service nginx)
     XRAY_STATUS=$(check_service xray)
     WSEPRO_STATUS=$(check_service ws)
-    DROPBEAR_STATUS=$(check_service dropbear)
+    DROPBEAR_STATUS=$(check_service dropbear) 
     HAPROXY_STATUS=$(check_service haproxy)
 }
 
 # =============================================
-# ACCOUNT STATISTICS (Complete)
+# ACCOUNT STATISTICS
 # =============================================
 get_account_stats() {
     SSH_COUNT=$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)
@@ -119,14 +120,14 @@ get_account_stats() {
 }
 
 # =============================================
-# DISPLAY FUNCTIONS (Optimized for readability)
+# DISPLAY FUNCTIONS
 # =============================================
 display_header() {
     echo -e "${BLUE}╔══════════════════════════════════════════════════════════╗"
     echo -e "║ ${YELLOW}POKEMON TUNNELING HORE - PREMIUM EDITION${BLUE}                 ║"
     echo -e "╠══════════════════════════════════════════════════════════╣"
     echo -e "║ ${CYAN}OS${NC}     : ${WHITE}$MODEL${BLUE}"
-    echo -e "║ ${CYAN}ISP${NC}    : ${WHITE}$ISP${BLUE}"
+    echo -e "║ ${CYAN}ISP${NC}    : ${WHITE}$ISP${BLUE}" 
     echo -e "║ ${CYAN}CITY${NC}   : ${WHITE}$CITY${BLUE}"
     echo -e "║ ${CYAN}IP${NC}     : ${WHITE}$IPVPS${BLUE}"
     echo -e "║ ${CYAN}DOMAIN${NC} : ${WHITE}$DOMAIN${BLUE}"
@@ -139,7 +140,7 @@ display_header() {
 
 display_services() {
     echo -e "${BLUE}╔══════════════════════════════════════════════════════════╗"
-    echo -e "║ ${YELLOW}SERVICES STATUS${BLUE}                                          ║"
+    echo -e "║ ${YELLOW}SERVICES STATUS${BLUE}                                          ║" 
     echo -e "╠══════════════════════════════════════════════════════════╣"
     echo -e "║ ${CYAN}SSH${NC}      : $SSH_STATUS${BLUE}"
     echo -e "║ ${CYAN}NGINX${NC}    : $NGINX_STATUS${BLUE}"
@@ -156,7 +157,7 @@ display_accounts() {
     echo -e "╠══════════════════════════════════════════════════════════╣"
     echo -e "║ ${CYAN}SSH/OVPN${NC}    : ${WHITE}$SSH_COUNT${BLUE}"
     echo -e "║ ${CYAN}VMESS${NC}       : ${WHITE}$VMESS_COUNT${BLUE}"
-    echo -e "║ ${CYAN}VLESS${NC}       : ${WHITE}$VLESS_COUNT${BLUE}" 
+    echo -e "║ ${CYAN}VLESS${NC}       : ${WHITE}$VLESS_COUNT${BLUE}"
     echo -e "║ ${CYAN}TROJAN${NC}      : ${WHITE}$TROJAN_COUNT${BLUE}"
     echo -e "║ ${CYAN}SHADOWSOCKS${NC} : ${WHITE}$SHADOWSOCKS_COUNT${BLUE}"
     echo -e "╚══════════════════════════════════════════════════════════╝"
@@ -171,22 +172,22 @@ display_license() {
     echo -e "║ ${CYAN}Expired${NC}    : ${WHITE}$EXPIRY_DATE${BLUE}"
     echo -e "║ ${CYAN}Hari${NC}       : ${WHITE}$CERTIFICATE${BLUE}"
     echo -e "║ ${CYAN}Lisensi${NC}    : $STATUS"
-    echo -e "${BLUE}╚══════════════════════════════════════════════════════════╝"
+    echo -e "╚══════════════════════════════════════════════════════════╝"
 }
 
 display_menu() {
     echo -e "${BLUE}╔══════════════════════════════════════════════════════════╗"
     echo -e "║ ${YELLOW}TUNNELING SERVICES${BLUE}                                       ║"
     echo -e "╠══════════════════════════════════════════════════════════╣"
-    echo -e "║ ${WHITE}[1]${NC} ${CYAN}SSH Menu${BLUE}"                           
-    echo -e "║ ${WHITE}[2]${NC} ${CYAN}VMESS Menu${BLUE}"                        
-    echo -e "║ ${WHITE}[3]${NC} ${CYAN}VLESS Menu${BLUE}"                            
-    echo -e "║ ${WHITE}[4]${NC} ${CYAN}TROJAN Menu${BLUE}"                        
-    echo -e "║ ${WHITE}[5]${NC} ${CYAN}SSWS Menu${BLUE}"                            
-    echo -e "║ ${WHITE}[6]${NC} ${CYAN}HOKAGEVPN Menu${BLUE}"                       
-    echo -e "║ ${WHITE}[7]${NC} ${CYAN}SPEEDTEST${BLUE}"                             
-    echo -e "║ ${WHITE}[8]${NC} ${CYAN}UTILITIES${BLUE}"                              
-    echo -e "║ ${WHITE}[0]${NC} ${RED}EXIT${BLUE}"                         
+    echo -e "║ ${WHITE}[1]${NC} ${CYAN}SSH Menu${BLUE}"
+    echo -e "║ ${WHITE}[2]${NC} ${CYAN}VMESS Menu${BLUE}"
+    echo -e "║ ${WHITE}[3]${NC} ${CYAN}VLESS Menu${BLUE}"
+    echo -e "║ ${WHITE}[4]${NC} ${CYAN}TROJAN Menu${BLUE}"
+    echo -e "║ ${WHITE}[5]${NC} ${CYAN}SSWS Menu${BLUE}"
+    echo -e "║ ${WHITE}[6]${NC} ${CYAN}HOKAGEVPN Menu${BLUE}"
+    echo -e "║ ${WHITE}[7]${NC} ${CYAN}SPEEDTEST${BLUE}"
+    echo -e "║ ${WHITE}[8]${NC} ${CYAN}UTILITIES${BLUE}"
+    echo -e "║ ${WHITE}[0]${NC} ${RED}EXIT${BLUE}"
     echo -e "╚══════════════════════════════════════════════════════════╝"
 }
 
