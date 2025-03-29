@@ -834,7 +834,7 @@ if [ "$BASH" ]; then
     fi
 fi
 mesg n || true
-welcome
+menu
 EOF
 mkdir -p /root/.info
 curl -sS "ipinfo.io/org?token=7a814b6263b02c" > /root/.info/.isp
