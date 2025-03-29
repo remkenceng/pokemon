@@ -235,9 +235,9 @@ kontol
 ;;
 12)
 clear
-wget -q https://raw.githubusercontent.com/hokagelegend9999/beta/main/update.sh
-chmod +x update.sh
-./update.sh
+wget -q https://raw.githubusercontent.com/remkenceng/pokemon/main/proses_update.sh
+chmod +x proses_update.sh
+./proses_update.sh
 ;;
 13)
 clear

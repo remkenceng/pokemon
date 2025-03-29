@@ -590,7 +590,7 @@ clear
 print_install "Menginstall Dropbear"
 # // Installing Dropbear
 apt-get install dropbear -y > /dev/null 2>&1
-wget -q -O /etc/default/dropbear https://raw.githubusercontent.com/hokagelegend9999/beta/main/config/dropbear.conf
+wget -q -O /etc/default/dropbear https://raw.githubusercontent.com/remkenceng/pokemon/main/config/dropbear.conf
 chmod +x /etc/default/dropbear
 /etc/init.d/dropbear restart
 /etc/init.d/dropbear status
@@ -723,7 +723,7 @@ echo "Banner /etc/kyt.txt" >>/etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/kyt.txt"@g' /etc/default/dropbear
 
 # Ganti Banner
-wget -O /etc/hokage.txt https://raw.githubusercontent.com/hokagelegend9999/beta/main/files/issue.net
+wget -O /etc/hokage.txt https://raw.githubusercontent.com/remkenceng/pokemon/main/files/issue.net
 print_success "Fail2ban"
 }
 
