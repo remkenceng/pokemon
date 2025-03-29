@@ -91,29 +91,11 @@ check_subscription() {
 }
 
 run_installation() {
-    mkdir -p /tmp/pokemon
-    if ! curl -s -o "/tmp/pokemon/proses_install.sh" "$REPO_POKEMON/proses_install.sh"; then
-        echo -e "${RED}[ERROR] Failed to download installation script!${NC}"
-        exit 1
-    fi
-    
-    chmod +x "/tmp/pokemon/proses_install.sh"
-    if ! bash "/tmp/pokemon/proses_install.sh"; then
-        echo -e "${RED}[ERROR] Installation failed!${NC}"
-        exit 1
-    fi
-}
-
-update_script() {
-    if curl -s -o "$0" "$REPO_POKEMON/proses_update.sh"; then
-        echo -e "${GREEN}Berhasil Melakukan Update .....${NC}"
-        chmod +x "$0"
-        sleep 1
-        exec "$0"
-    else
-        echo -e "${RED}Tidak Berhasil Melakukan Update .....${NC}"
-        exit 1
-    fi
+    wget -q -O /tmp/pokemon/proses_install.sh "$REPO_POKEMON/proses_install.sh"
+    chmod +x /tmp/pokemon/proses_install.sh
+    bash /tmp/pokemon/proses_install.sh
+    rm -rf /tmp/pokemon
+    exit
 }
 
 show_denied() {
