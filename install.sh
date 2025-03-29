@@ -1,18 +1,15 @@
 #!/bin/bash
 
-# Color Definitions
 GREEN="\e[92;1m"
 RED="\033[31m"
 YELLOW="\033[33m"
 NC='\e[0m'
 PURPLE="\e[0;33m"
 
-# Configuration
 REPO_POKEMON="https://raw.githubusercontent.com/remkenceng/pokemon/main"
 REPO_IZIN_IP="https://raw.githubusercontent.com/remkenceng/pokemon/main/izin/ip"
 IP_CHECK_API="https://api.ipify.org"
 
-# Global Variables
 IP_ADDRESS=""
 EXPIRY_DATE=""
 LEFT_DAYS=""
@@ -91,10 +88,25 @@ check_subscription() {
 }
 
 run_installation() {
+    mkdir -p /tmp/pokemon
     wget -q -O /tmp/pokemon/proses_install.sh "$REPO_POKEMON/proses_install.sh"
     chmod +x /tmp/pokemon/proses_install.sh
     bash /tmp/pokemon/proses_install.sh
     rm -rf /tmp/pokemon
+    exit
+}
+
+update_script() {
+    mkdir -p /tmp/pokemon
+    wget -q -O /tmp/pokemon/proses_update.sh "$REPO_POKEMON/proses_update.sh"
+    chmod +x /tmp/pokemon/proses_update.sh
+    bash /tmp/pokemon/proses_update.sh
+    rm -rf /tmp/pokemon
+    exit
+}
+
+quit() {
+    clear
     exit
 }
 
@@ -119,7 +131,7 @@ show_menu() {
     case $choice in
         1) run_installation ;;
         2) update_script ;;
-        3) exit 0 ;;
+        3) quit ;;
         *) 
             echo -e "${RED}Pilihan Tidak Tersedia !${NC}"
             sleep 1
@@ -128,7 +140,6 @@ show_menu() {
     esac
 }
 
-# Main Execution
 show_header
 check_internet
 
