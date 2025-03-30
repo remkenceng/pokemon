@@ -5,6 +5,7 @@ tput reset
 proses_membersihkan() {
     rm -rf /usr/local/sbin/*
 }
+
 proses_unduh() {
     nama_nama_filenya=(
         add-bot-notif addhost addss addssh addtr addvless addws autokill autoreboot
@@ -18,7 +19,9 @@ proses_unduh() {
     )
     for files in "${nama_nama_filenya[@]}"; do
         wget "https://raw.githubusercontent.com/remkenceng/pokemon/main/menu/$files"
+    done
 }
+
 proses_membersihkan
 proses_unduh
 tput reset
