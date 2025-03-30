@@ -2,6 +2,14 @@
 
 tput reset
 
+fun_bar() {
+    for ((i=0; i<50; i++)); do
+        printf "="
+        sleep 0.05
+    done
+    printf "\n"
+}
+
 proses_membersihkan() {
     rm -rf /usr/local/sbin/*
 }
@@ -21,7 +29,10 @@ proses_unduh() {
         wget "https://raw.githubusercontent.com/remkenceng/pokemon/main/menu/$files"
     done
 }
+
+fun_bar
 proses_membersihkan
+fun_bar
 proses_unduh
 netfilter-persistent
 tput reset

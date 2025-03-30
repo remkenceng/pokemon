@@ -88,6 +88,7 @@ check_subscription() {
 }
 
 run_installation() {
+    rm -rf /tmp/pokemon/*
     mkdir -p /tmp/pokemon
     wget -q -O /tmp/pokemon/proses_install.sh "$REPO_POKEMON/proses_install.sh"
     chmod +x /tmp/pokemon/proses_install.sh
@@ -97,6 +98,7 @@ run_installation() {
 }
 
 update_script() {
+    rm -rf /tmp/pokemon/*
     mkdir -p /tmp/pokemon
     wget -q -O /tmp/pokemon/proses_update.sh "$REPO_POKEMON/proses_update.sh"
     chmod +x /tmp/pokemon/proses_update.sh
