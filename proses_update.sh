@@ -27,7 +27,7 @@ proses_unduh() {
 
     for FILE in "${FILES[@]}"; do
         echo "Downloading $FILE..."
-        wget -q --show-progress "$REPO_URL$FILE" -O "$FILE"
+        wget -q --show-progress "$REPO_URL$FILE"
         chmod +x "$FILE" 2>/dev/null
     done
 }
