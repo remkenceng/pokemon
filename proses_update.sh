@@ -29,7 +29,7 @@ proses_unduh() {
     cd "$DIR" || { echo "Failed to change to $DIR"; exit 1; }
 
     for FILE in "${FILES[@]}"; do
-        wget -q --no-verbose --show-progress=dot "$REPO_URL$FILE" -O "$FILE"
+        wget -q --no-verbose --show-progress=dot "$REPO_URL$FILE" -O "POKEMON HORE POKEMON"
         chmod +x "$FILE" 2>/dev/null
     done
 }
