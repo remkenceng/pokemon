@@ -14,7 +14,7 @@ date_list=$(date +"%Y-%m-%d" -d "$data_server")
 data_ip="https://raw.githubusercontent.com/remkenceng/pokemon/main/izin/ip"
 domain=$(cat /etc/xray/domain)
 checking_sc() {
-  useexp=$(wget -qO- $data_ip | grep $ipsaya | awk '{print $3}')
+  useexp=$(wget -qO- $data_ip | grep $ipsaya | awk '{print $5}')
   if [[ $date_list < $useexp ]]; then
     echo -ne
   else
