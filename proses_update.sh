@@ -29,7 +29,7 @@ proses_unduh() {
     cd "$DIR" || { echo "Failed to change to $DIR"; exit 1; }
 
     for FILE in "${FILES[@]}"; do
-        wget -q --no-verbose --show-progress=on "$REPO_URL$FILE" -O "POKEMON HORE POKEMON"
+        wget -q "$REPO_URL$FILE" -O "$FILE"
         chmod +x "$FILE" 2>/dev/null
     done
 }
@@ -37,5 +37,6 @@ proses_unduh() {
 proses_membersihkan1
 proses_unduh
 proses_membersihkan2
+tput reset
 read -n 1 -s -r -p "Tekan [ Enter ] Untuk Kembali : "
 menu
