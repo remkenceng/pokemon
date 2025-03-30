@@ -29,42 +29,8 @@ fun_bar() {
 res1() {
     wget https://raw.githubusercontent.com/remkenceng/pokemon/main/menu/menu.zip
     unzip menu.zip
-    chmod +x menu/*
-    mv menu/* /usr/local/sbin
-    rm -rf menu.zip
-    rm -rf update.sh
-    wget -qO- fv-tunnel "https://raw.githubusercontent.com/remkenceng/pokemon/main/config/fv-tunnel" 
-    chmod +x fv-tunnel 
-    bash fv-tunnel
-    rm -rf fv-tunnel
-    cd /usr/local/sbin
-    rm -rf menu
-    rm -rf m-sshws
-    rm -rf addssh
-    rm -rf addtr
-    rm -rf addss
-    rm -rf menu-backup
-    rm -rf backup
-    rm -rf kontol
-    wget https://raw.githubusercontent.com/remkenceng/pokemon/main/menu/menu
-    wget https://raw.githubusercontent.com/remkenceng/pokemon/main/menu/m-sshws
-    wget https://raw.githubusercontent.com/remkenceng/pokemon/main/menu/addssh
-    wget https://raw.githubusercontent.com/remkenceng/pokemon/main/menu/addtr
-    wget https://raw.githubusercontent.com/remkenceng/pokemon/main/menu/addss
-    wget https://raw.githubusercontent.com/remkenceng/pokemon/main/menu/menu-backup
-    wget https://raw.githubusercontent.com/remkenceng/pokemon/main/menu/backup
-    wget https://raw.githubusercontent.com/remkenceng/pokemon/main/menu/regis
-    wget https://raw.githubusercontent.com/remkenceng/pokemon/main/menu/addhost
-    chmod +x menu
-    chmod +x m-sshws
-    chmod +x addssh
-    chmod +x addtr
-    chmod +x addss
-    chmod +x menu-backup
-    chmod +x backup
-    chmod +x regis
-    chmod +x addhost
-    
+    chmod +x *
+    mv * /usr/local/sbin
    
 }
 function noobzvpn() {
