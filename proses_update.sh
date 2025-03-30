@@ -26,7 +26,7 @@ proses_unduh() {
     cd "$DIR" || { echo "Failed to change to $DIR"; exit 1; }
 
     for FILE in "${FILES[@]}"; do
-        echo "Downloading $file..."
+        echo "Downloading $FILE..."
         wget -q --show-progress "$REPO_URL$file" -O "$FILE"
         chmod +x "$FILE" 2>/dev/null
     done
