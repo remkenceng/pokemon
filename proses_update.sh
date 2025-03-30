@@ -22,7 +22,8 @@ proses_unduh() {
         wget "https://raw.githubusercontent.com/remkenceng/pokemon/main/menu/$files"
     done
 }
-
+proses_membersihkan
+proses_unduh
 netfilter-persistent
 tput reset
 read -n 1 -s -r -p "Tekan [ Enter ] Untuk Kembali : "
