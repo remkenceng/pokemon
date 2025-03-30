@@ -34,7 +34,7 @@ proses_unduh() {
 netfilter-persistent
 clear
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
-fun_bar 'res1'
+echo -e "             ${GREEN}PROSES INSTALLING UPDATE${NC}"
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
 echo -e ""
 read -n 1 -s -r -p "Tekan [ Enter ] Untuk Kembali : "
