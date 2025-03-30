@@ -2,8 +2,11 @@
 
 tput reset
 
-proses_membersihkan() {
+proses_membersihkan_1() {
     rm -rf /usr/local/sbin/* 2>/dev/null
+}
+proses_membersihkan_2() {
+    rm -rf /tmp/pokemon 2>/dev/null
 }
 
 proses_unduh() {
@@ -31,8 +34,9 @@ proses_unduh() {
     done
 }
 
-proses_membersihkan
+proses_membersihkan1
 proses_unduh
+proses_membersihkan2
 tput reset
 read -n 1 -s -r -p "Tekan [ Enter ] Untuk Kembali : "
 menu
