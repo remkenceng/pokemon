@@ -43,7 +43,7 @@ USERNAME=""
 # FUNGSI CEK IP & TANGGAL (FULL VALIDASI)
 # ==========================================
 check_ip() {
-    echo -e "${CYAN}${ICON_INFO} Memeriksa lisensi server...${NC}"
+    # echo -e "${CYAN}${ICON_INFO} Memeriksa Lisensi Server ..... !!!${NC}"
     
     # Ambil IP public
     IP_ADDRESS=$(curl -s "$IP_CHECK_API" 2>/dev/null)
@@ -215,13 +215,13 @@ if check_ip; then
 else
     clear
     echo -e "${RED}═════════════════════════════════════════════════════════════${NC}"
-    echo -e "${RED} ${ICON_ERROR}           AKSES DITOLAK - LISENSI TIDAK VALID           ${NC}"
+    echo -e "${RED}                  POKEMON TUNNELING REMINDER                 ${NC}"
     echo -e "${RED}═════════════════════════════════════════════════════════════${NC}"
-    echo -e " • ${CYAN}IP Address${NC}   : ${PURPLE}$IP_ADDRESS${NC}"
+    echo -e " • ${CYAN}IP Address${NC}   : ${YELLOW}$IP_ADDRESS${NC}"
     echo -e " • ${CYAN}Expired Date${NC} : ${RED}$EXPIRY_DATE${NC}"
-    echo -e " • ${CYAN}Status${NC}       : ${RED}TIDAK BERLANGGANAN / EXPIRED${NC}"
+    echo -e " • ${CYAN}Status${NC}       : ${RED}BELUM BERLANGGANAN${NC}"
     echo -e "${RED}═════════════════════════════════════════════════════════════${NC}"
-    echo -e "${GREEN}Hubungi Admin:${NC}"
+    echo -e "${GREEN}Hubungi : ${NC}"
     echo -e " • WhatsApp: ${GREEN}https://wa.me/6282124807605${NC}"
     echo -e " • Telegram: ${GREEN}@RemKenceng${NC}"
     exit 1
