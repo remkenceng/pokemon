@@ -29,9 +29,9 @@ fun_bar() {
 res1() {
     wget https://raw.githubusercontent.com/remkenceng/pokemon/main/menu/menu.zip
     unzip menu.zip
+    rm -rf menu.zip
     chmod +x *
     mv * /usr/local/sbin
-   
 }
 function noobzvpn() {
 wget "${REPO}/noobzvpns.zip"
@@ -44,12 +44,8 @@ print_success "NOOBZVPN"
 netfilter-persistent
 clear
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
-echo -e " \e[1;97;101m UPDATE SCRIPT SEDANG BERJALAN !             \e[0m"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
-echo -e ""
-echo -e "  \033[1;91m Update Script Service\033[1;37m"
 fun_bar 'res1'
 echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
 echo -e ""
-read -n 1 -s -r -p "Press [ Enter ] to back on menu"
+read -n 1 -s -r -p "Press [ Enter ] to Back on Menu : "
 menu
