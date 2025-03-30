@@ -1,6 +1,5 @@
 #!/bin/bash
 
-## BERSIHKAN TAMPILAN
 tput reset
 
 proses_membersihkan() {
