@@ -109,7 +109,7 @@ get_account_stats() {
         VMESS_COUNT=$(( $(grep -c -E "^### " "/etc/xray/config.json") / 2 ))
         VLESS_COUNT=$(( $(grep -c -E "^#& " "/etc/xray/config.json") / 2 ))
         TROJAN_COUNT=$(( $(grep -c -E "^#! " "/etc/xray/config.json") / 2 ))
-        SHADOWSOCKS_COUNT=$(( $(grep -c -E "^#ss# " "/etc/xray/config.json") / 2 ))
+        SHADOWSOCKS_COUNT=$(( $(grep -c -E "^### ss " "/etc/xray/config.json") / 2 ))
     else
         VMESS_COUNT=0
         VLESS_COUNT=0

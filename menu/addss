@@ -374,7 +374,7 @@ echo -e " CREATE SHADOWSOCKS         " | tee -a /etc/user-create/user.log
 echo -e "\033[1;93m◇━━━━━━━━━━━━━━━━━◇\033[0m" | tee -a /etc/user-create/user.log
 echo -e "Remarks     : ${user}" | tee -a /etc/user-create/user.log
 echo -e "Domain      : ${domain}" | tee -a /etc/user-create/user.log
-echo -e "User Quota       : ${Quota} GB" | tee -a /etc/user-create/user.log
+echo -e "User Quota  : ${Quota} GB" | tee -a /etc/user-create/user.log
 echo -e "Port TLS    : 400-900" | tee -a /etc/user-create/user.log
 echo -e "Password    : ${uuid}" | tee -a /etc/user-create/user.log
 echo -e "Cipers      : aes-128-gcm" | tee -a /etc/user-create/user.log
