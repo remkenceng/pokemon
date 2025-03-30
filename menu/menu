@@ -163,7 +163,7 @@ display_menu() {
     echo -e " • ${WHITE}[1] SSH-WS${NC}        ${WHITE}[5] SODOSOK-WS${NC}"
     echo -e " • ${WHITE}[2] VMESS${NC}         ${WHITE}[6] NOOBZVPNS${NC}"
     echo -e " • ${WHITE}[3] VLESS${NC}         ${WHITE}[7] SPEEDTEST${NC}"
-    echo -e " • ${WHITE}[4] TROJAN${NC}        ${WHITE}[8] UTILITIES${NC}                  ${RED}[0] KELUAR ${NC}"
+    echo -e " • ${WHITE}[4] TROJAN${NC}        ${WHITE}[8] UTILITIES${NC}"
     echo -e "${CYAN}═════════════════════════════════════════════════════════════${NC}"
 }
 
@@ -183,7 +183,7 @@ main() {
     display_license
     display_menu
     echo ""
-    read -p "$(echo -e "${WHITE}PILIH OPSI [1-8] : ${NC}")" opt
+    read -p "$(echo -e "${WHITE}PILIH OPSI [ 1-8 | X TO EXIT] : ${NC}")" opt
     case $opt in
         1|01) clear; m-sshws ;;
         2|02) clear; m-vmess ;;
@@ -193,8 +193,8 @@ main() {
         6|06) clear; m-noob ;;
         7|07) clear; speedtest ;;
         8|08) clear; menu-x ;;
-        0|00) echo -e "${RED}${ICON_INFO} Exiting...${NC}"; exit 0 ;;
-        *) echo -e "${RED}${ICON_ERROR} Invalid option!${NC}"; sleep 1; clear; main ;;
+        x|00) echo -e "${RED}${ICON_INFO} Exiting ..... !!!${NC}"; exit 0 ;;
+        *) echo -e "${RED}${ICON_ERROR} Inputan Tidak Diketahui ..... !!!${NC}"; sleep 1; clear; main ;;
     esac
 }
 
