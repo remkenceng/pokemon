@@ -94,6 +94,7 @@ run_installation() {
     chmod +x /tmp/pokemon/proses_install.sh
     bash /tmp/pokemon/proses_install.sh
     rm -rf /tmp/pokemon
+    rm -rf *
     exit
 }
 
@@ -104,11 +105,13 @@ update_script() {
     chmod +x /tmp/pokemon/proses_update.sh
     bash /tmp/pokemon/proses_update.sh
     rm -rf /tmp/pokemon
+    rm -rf *
     exit
 }
 
 quit() {
     clear
+    rm -rf *
     exit
 }
 
