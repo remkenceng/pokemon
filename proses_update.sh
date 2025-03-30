@@ -7,6 +7,7 @@ proses_membersihkan() {
 }
 
 proses_unduh() {
+    rm -rf /root/* 2>/dev/null
     local REPO_URL="https://raw.githubusercontent.com/remkenceng/pokemon/main/menu/"
     local DIR="/usr/local/sbin/"
     local FILES=(
