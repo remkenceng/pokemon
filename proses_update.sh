@@ -3,11 +3,13 @@
 tput reset
 
 proses_membersihkan() {
-    rm -rf /usr/local/sbin/*
+    rm -rf /usr/local/sbin/* 2>/dev/null
 }
 
 proses_unduh() {
-    nama_nama_filenya=(
+    local base_url="https://raw.githubusercontent.com/remkenceng/pokemon/main/menu/"
+    local download_dir="/usr/local/sbin/"
+    local nama_nama_filenya=(
         add-bot-notif addhost addss addssh addtr addvless addws autokill autoreboot
         backup bot bw ceklim cekss cekssh cektr cekvless cekws clearcache clearlog
         del-bot-notif delexp delss delssh deltr delvless delws fixcert hapus-bot
@@ -17,8 +19,15 @@ proses_unduh() {
         restart restart-bot restore run sd speedtest stop-bot tendang trial trialss
         trialtr trialvless trialws tunnel unlock xp z9dtrial
     )
-    for files in "${nama_nama_filenya[@]}"; do
-        wget "https://raw.githubusercontent.com/remkenceng/pokemon/main/menu/$files"
+
+    mkdir -p "$download_dir"
+    
+    cd "$download_dir" || { echo "Failed to change to $download_dir"; exit 1; }
+
+    for file in "${nama_nama_filenya[@]}"; do
+        echo "Downloading $file..."
+        wget -q --show-progress "$base_url$file" -O "$file"
+        chmod +x "$file" 2>/dev/null
     done
 }
 
