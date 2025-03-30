@@ -89,9 +89,9 @@ bln2=$(date +"%b")
 thn2=$(date +"%Y")
 tnggl="$tgl2 $bln2, $thn2"
 exp=$(date -d "$masaaktif days" +"%Y-%m-%d")
-sed -i '/#ssws$/a\#!ss '"$user $exp"'\
+sed -i '/#ssws$/a\#ss# '"$user $exp"'\
 },{"password": "'""$uuid""'","method": "'""$cipher""'","email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#ssgrpc$/a\#!ss '"$user $exp"'\
+sed -i '/#ssgrpc$/a\#ss# '"$user $exp"'\
 },{"password": "'""$uuid""'","method": "'""$cipher""'","email": "'""$user""'"' /etc/xray/config.json
 echo $cipher:$uuid > /tmp/log
 shadowsocks_base64=$(cat /tmp/log)
