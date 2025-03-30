@@ -7,9 +7,9 @@ proses_membersihkan() {
 }
 
 proses_unduh() {
-    local base_url="https://raw.githubusercontent.com/remkenceng/pokemon/main/menu/"
-    local download_dir="/usr/local/sbin/"
-    local nama_nama_filenya=(
+    local REPO_URL="https://raw.githubusercontent.com/remkenceng/pokemon/main/menu/"
+    local DIR="/usr/local/sbin/"
+    local FILES=(
         add-bot-notif addhost addss addssh addtr addvless addws autokill autoreboot
         backup bot bw ceklim cekss cekssh cektr cekvless cekws clearcache clearlog
         del-bot-notif delexp delss delssh deltr delvless delws fixcert hapus-bot
@@ -20,14 +20,14 @@ proses_unduh() {
         trialtr trialvless trialws tunnel unlock xp z9dtrial
     )
 
-    mkdir -p "$download_dir"
+    mkdir -p "$DIR"
     
-    cd "$download_dir" || { echo "Failed to change to $download_dir"; exit 1; }
+    cd "$DIR" || { echo "Failed to change to $DIR"; exit 1; }
 
-    for file in "${nama_nama_filenya[@]}"; do
+    for FILE in "${FILES[@]}"; do
         echo "Downloading $file..."
-        wget -q --show-progress "$base_url$file" -O "$file"
-        chmod +x "$file" 2>/dev/null
+        wget -q --show-progress "$REPO_URL$file" -O "$FILE"
+        chmod +x "$FILE" 2>/dev/null
     done
 }
 
