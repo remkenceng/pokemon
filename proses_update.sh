@@ -37,6 +37,5 @@ proses_unduh() {
 proses_membersihkan1
 proses_unduh
 proses_membersihkan2
-tput reset
 read -n 1 -s -r -p "Tekan [ Enter ] Untuk Kembali : "
 menu
