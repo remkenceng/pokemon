@@ -88,6 +88,7 @@ check_subscription() {
         echo -e "${GREEN}Hubungi : ${NC}"
         echo -e " • WhatsApp: ${GREEN}https://wa.me/6282124807605${NC}"
         echo -e " • Telegram: ${GREEN}@RemKenceng${NC}"
+        clear
         echo ""
         exit 1
     }
@@ -133,6 +134,7 @@ show_denied() {
     echo -e " • WhatsApp: ${GREEN}https://wa.me/6282124807605${NC}"
     echo -e " • Telegram: ${GREEN}@RemKenceng${NC}"
     echo ""
+    clear
     exit 1
 }
 
