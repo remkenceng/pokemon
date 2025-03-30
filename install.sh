@@ -116,11 +116,17 @@ quit() {
 }
 
 show_denied() {
-    show_header
-    echo -e "Ip ${PURPLE}[$IP_ADDRESS]${NC}${RED} -> Belum Berlangganan ?${NC}"
+    echo -e "${RED}═════════════════════════════════════════════════════════════${NC}"
+    echo -e "${RED}                  POKEMON TUNNELING REMINDER                 ${NC}"
+    echo -e "${RED}═════════════════════════════════════════════════════════════${NC}"
+    echo -e " • ${CYAN}IP Address${NC}   : ${YELLOW}$IP_ADDRESS${NC}"
+    echo -e " • ${CYAN}Expired Date${NC} : ${RED}$EXPIRY_DATE${NC}"
+    echo -e " • ${CYAN}Status${NC}       : ${RED}BELUM BERLANGGANAN${NC}"
+    echo -e "${RED}═════════════════════════════════════════════════════════════${NC}"
+    echo -e "${GREEN}Hubungi : ${NC}"
+    echo -e " • WhatsApp: ${GREEN}https://wa.me/6282124807605${NC}"
+    echo -e " • Telegram: ${GREEN}@RemKenceng${NC}"
     echo ""
-    echo -e "${GREEN}Hubungi WhatsApp : https://wa.me/6282124807605${NC}"
-    echo -e "${GREEN}Hubungi Telegram : @RemKenceng${NC}"
     exit 1
 }
 

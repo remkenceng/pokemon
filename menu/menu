@@ -224,5 +224,6 @@ else
     echo -e "${GREEN}Hubungi : ${NC}"
     echo -e " • WhatsApp: ${GREEN}https://wa.me/6282124807605${NC}"
     echo -e " • Telegram: ${GREEN}@RemKenceng${NC}"
+    echo ""
     exit 1
 fi
