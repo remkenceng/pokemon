@@ -39,4 +39,5 @@ proses_unduh
 proses_membersihkan2
 tput reset
 read -n 1 -s -r -p "Tekan [ Enter ] Untuk Kembali : "
+echo ""
 menu
