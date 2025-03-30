@@ -6,14 +6,6 @@ tput reset
 proses_membersihkan() {
     rm -rf /usr/local/sbin/*
 }
-# res1() {
-#     cleanup
-#     wget https://raw.githubusercontent.com/remkenceng/pokemon/main/menu/menu.zip
-#     unzip menu.zip
-#     rm -rf menu.zip
-#     chmod +x *
-#     mv * /usr/local/sbin
-# }
 
 proses_unduh() {
     nama_nama_filenya=(
@@ -32,10 +24,6 @@ proses_unduh() {
 }
 
 netfilter-persistent
-clear
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
-echo -e "             ${GREEN}PROSES INSTALLING UPDATE${NC}"
-echo -e "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" | lolcat
-echo -e ""
+tput reset
 read -n 1 -s -r -p "Tekan [ Enter ] Untuk Kembali : "
 menu
