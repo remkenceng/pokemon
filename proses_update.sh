@@ -6,7 +6,7 @@ proses_membersihkan_1() {
     rm -rf /usr/local/sbin/* 2>/dev/null
 }
 proses_membersihkan_2() {
-    rm -rf /tmp/pokemon 2>/dev/null
+    rm -rf /tmp/pokemon/* 2>/dev/null
 }
 
 proses_unduh() {
