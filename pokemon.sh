@@ -2,6 +2,14 @@
 
 reset
 
+CEK_IP=$(curl -sS ipv4.icanhazip.com)
+REPO_IZIN_IP=$(curl -sS https://raw.githubusercontent.com/remkenceng/pokemon/main/izin/ip)
+
+if ! awk -v ip="$CEK_IP" '$0 ~ ip' <<< "$REPO_IZIN_IP"; then
+    echo "Kamu Belum Berlangganan !"
+    exit 1
+fi
+
 echo "1. Install Pokemon Tunneling"
 echo "2. Update Pokemon Tunneling"
 echo "3. Update Dependency"
@@ -45,3 +53,4 @@ case $Input in
         bash pokemon.sh
         ;;
 esac
+
