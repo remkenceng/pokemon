@@ -3,9 +3,10 @@
 reset
 
 echo "1. Install Pokemon Tunneling"
-echo "2. Update Dependency"
-echo "3. Get Root"
-echo "4. Exit"
+echo "2. Update Pokemon Tunneling"
+echo "3. Update Dependency"
+echo "4. Get Root"
+echo "5. Exit"
 echo ""
 read -p "Pilih : " Input
 echo ""
@@ -19,15 +20,22 @@ case $Input in
         rm -rf install.sh
         ;;
     2)
+        wget https://raw.githubusercontent.com/remkenceng/pokemon/main/proses_update.sh
+        chmod +x proses_update.sh
+        reset
+        bash proses_update.sh
+        rm -rf proses_update.sh
+        ;;
+    3)
         sudo apt-get update -y && sudo apt-get upgrade -y
         bash pokemon.sh
         ;;
-    3)
+    4)
         wget https://raw.githubusercontent.com/remkenceng/pokemon/main/root/install.sh
         chmod +x install.sh
         bash install.sh
         ;;
-    4)
+    5)
         exit
         ;;
     *)
