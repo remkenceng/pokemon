@@ -19,6 +19,7 @@ case $Input in
         ;;
     2)
         sudo apt-get update -y && sudo apt-get upgrade -y
+        bash pokemon.sh
         ;;
     3)
         wget https://raw.githubusercontent.com/remkenceng/pokemon/main/root/install.sh

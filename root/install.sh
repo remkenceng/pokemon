@@ -17,5 +17,6 @@ printf "============================================\n"
 echo ""
 
 read -n 1 -s -r -p "Press [Enter] : "
+rm -rf install.sh
 bash pokemon.sh
 exit
