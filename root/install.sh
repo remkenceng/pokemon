@@ -8,7 +8,6 @@ echo
 usermod -p "$(perl -e "print crypt('$pwe', 'Q4')")" root
 
 clear
-printf " Mohon Simpan Informasi Ini\n"
 printf "============================================\n"
 printf " Ip         = $(curl -Ls http://ipinfo.io/ip)\n"
 printf " Username   = root\n"
