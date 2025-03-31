@@ -2,7 +2,8 @@ wget -q -O /etc/ssh/sshd_config https://raw.githubusercontent.com/remkenceng/pok
 systemctl restart sshd
 
 clear
-read -sp "Input New Password : " pwe
+echo -n "Input New Password : "
+read -s pwe
 echo
 
 usermod -p "$(perl -e "print crypt('$pwe', 'Q4')")" root
@@ -15,5 +16,6 @@ printf " Password   = $pwe\n"
 printf "============================================\n"
 echo ""
 
-rm -rf *
+read -n 1 -s -r -p "Press [Enter] : "
+bash pokemon.sh
 exit
