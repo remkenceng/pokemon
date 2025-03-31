@@ -30,7 +30,19 @@ cek_ip_ke_url() {
     fi
 }
 
+cek_langganan() {
+    IP_VALID=$(echo "$REPO_IZIN_IP" | awk '{print $3}')
+    echo "Ip     : $CEK_IP" 
+    if [[ "$CEK_IP" == "$IP_VALID" ]]; then
+        echo "Status : Berlangganan"
+    else
+        echo "Status : Tidak Berlangganan"
+    fi
+}
+
 show_menu() {
+    cek_langganan
+    echo ""
     echo -e "\033[1;35mPokemon Services :\033[0m"
     echo -e "  \033[1;32m1.  \033[1;36mInstall Pokemon Tunneling [Paid]\033[0m"
     echo -e "  \033[1;32m2.  \033[1;36mUpdate Pokemon Tunneling [Paid]\033[0m"
