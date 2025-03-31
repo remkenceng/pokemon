@@ -3,7 +3,7 @@
 reset
 
 CEK_IP=$(curl -sS ipv4.icanhazip.com)
-REPO_IZIN_IP=$(curl -sS https://raw.githubusercontent.com/remkenceng/pokemon/main/izin/ip | sed -n '3p')
+REPO_IZIN_IP=$(curl -sS https://raw.githubusercontent.com/remkenceng/pokemon/main/izin/ip | awk '{print $3}')
 
 if [[ $REPO_IZIN_IP != *$CEK_IP* ]]; then
     echo "Lu Belum Berlangganan !"
