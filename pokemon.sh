@@ -16,6 +16,7 @@ case $Input in
         chmod +x install.sh
         reset
         bash install.sh
+        rm -rf install.sh
         ;;
     2)
         sudo apt-get update -y && sudo apt-get upgrade -y
