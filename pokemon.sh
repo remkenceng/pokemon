@@ -13,18 +13,23 @@ CEK_IP=$(curl -sS ipv4.icanhazip.com)
 REPO_IZIN_IP=$(curl -sS https://raw.githubusercontent.com/remkenceng/pokemon/main/izin/ip)
 
 memeriksa_ip() {
-    IP_VALID=$(echo "$REPO_IZIN_IP" | awk '{print $3}')
-    if [[ "$CEK_IP" != "$IP_VALID" ]]; then
+    # Check if CEK_IP exists in any line's third column
+    if ! grep -q "$CEK_IP" <<< "$(echo "$REPO_IZIN_IP" | awk '{print $3}')"; then
         menampilkan_pesan_error
     fi
 }
 
 memeriksa_member() {
-    IP_VALID=$(echo "$REPO_IZIN_IP" | awk '{print $3}')
     echo -e "${CYAN}"
     echo -e "${WHITE}► Ip         : ${GREEN}$CEK_IP${NC}"
-    if [[ "$CEK_IP" == "$IP_VALID" ]]; then
+    
+    # Find the line where the IP matches
+    MATCHING_LINE=$(echo "$REPO_IZIN_IP" | awk -v ip="$CEK_IP" '$3 == ip')
+    
+    if [ -n "$MATCHING_LINE" ]; then
+        USERNAME_VALID=$(echo "$MATCHING_LINE" | awk '{print $1}')
         echo -e "${WHITE}► Status     : ${GREEN}Ip Terdaftar${NC}"
+        echo -e "${WHITE}► Username   : ${PURPLE}$USERNAME_VALID${NC}"
     else
         echo -e "${WHITE}► Status     : ${RED}Ip Tidak Terdaftar${NC}"
     fi
@@ -57,14 +62,20 @@ menampilkan_menu() {
 
 menampilkan_pesan_error() {
     menampilkan_header
-    IP_VALID=$(echo "$REPO_IZIN_IP" | awk '{print $3}')
     echo -e "${CYAN}"
-    echo -e "${WHITE}► Ip         : ${GREEN}$CEK_IP${NC}"
-    if [[ "$CEK_IP" == "$IP_VALID" ]]; then
+    echo -e "${WHITE}► Ip         : ${YELLOW}$CEK_IP${NC}"
+    
+    # Find the line where the IP matches
+    MATCHING_LINE=$(echo "$REPO_IZIN_IP" | awk -v ip="$CEK_IP" '$3 == ip')
+    
+    if [ -n "$MATCHING_LINE" ]; then
+        USERNAME_VALID=$(echo "$MATCHING_LINE" | awk '{print $1}')
         echo -e "${WHITE}► Status     : ${GREEN}Ip Terdaftar${NC}"
+        echo -e "${WHITE}► Username   : ${PURPLE}$USERNAME_VALID${NC}"
     else
         echo -e "${WHITE}► Status     : ${RED}Ip Tidak Terdaftar${NC}"
     fi
+    
     echo ""
     echo -e "${CYAN}Hubungi WhatsApp : ${GREEN}https://wa.me/6282124807605${NC}"
     echo -e "${CYAN}Hubungi Telegram : ${GREEN}@RemKenceng${NC}"
