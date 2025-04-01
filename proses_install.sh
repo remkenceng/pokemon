@@ -28,6 +28,8 @@ install_1() {
     apt install wondershaper -y
 }
 
+install_1
+
 REPO="https://raw.githubusercontent.com/remkenceng/pokemon/main/"
 
 ####
