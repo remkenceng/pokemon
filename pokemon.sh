@@ -12,10 +12,8 @@ NC='\033[0m'
 CEK_IP=$(curl -sS ipv4.icanhazip.com)
 REPO_IZIN_IP=$(curl -sS https://raw.githubusercontent.com/remkenceng/pokemon/main/izin/ip)
 
-# Function to calculate days remaining with DD-MM-YYYY format
 hitung_durasi() {
     local exp_date="$1"
-    # Convert DD-MM-YYYY to YYYY-MM-DD for calculation
     local day=$(echo "$exp_date" | cut -d'-' -f1)
     local month=$(echo "$exp_date" | cut -d'-' -f2)
     local year=$(echo "$exp_date" | cut -d'-' -f3)
@@ -25,7 +23,6 @@ hitung_durasi() {
     local exp_seconds=$(date -d "$exp_date_std" +%s 2>/dev/null)
     local today_seconds=$(date -d "$today" +%s)
     
-    # Check if date conversion was successful
     if [ -z "$exp_seconds" ]; then
         echo "invalid"
         return
@@ -41,7 +38,6 @@ hitung_durasi() {
 }
 
 memeriksa_ip() {
-    # Check all lines for matching IP in column 3
     while IFS= read -r line; do
         ip_in_file=$(echo "$line" | awk '{print $3}')
         if [ "$ip_in_file" == "$CEK_IP" ]; then
@@ -57,7 +53,6 @@ memeriksa_member() {
     echo -e "${CYAN}"
     echo -e "${WHITE}► Ip         : ${YELLOW}$CEK_IP${NC}"
     
-    # Find all matching lines (in case of duplicates)
     while IFS= read -r line; do
         ip_in_file=$(echo "$line" | awk '{print $3}')
         if [ "$ip_in_file" == "$CEK_IP" ]; then
