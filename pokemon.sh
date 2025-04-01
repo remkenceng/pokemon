@@ -134,9 +134,6 @@ case $Input in
         wget -q -O /tmp/pokemon/proses_install.sh "$REPO_POKEMON/proses_install.sh"
         chmod +x /tmp/pokemon/proses_install.sh
         bash /tmp/pokemon/proses_install.sh
-        rm -rf /tmp/pokemon
-        rm -rf *
-        exit
         ;;
     2)
         memeriksa_ip
