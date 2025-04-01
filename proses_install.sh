@@ -8,11 +8,25 @@ CYAN='\033[1;36m'
 WHITE='\033[1;37m'
 NC='\033[0m'
 
-reset
-apt install ruby -y
-gem install lolcat
-apt install wondershaper -y
-reset
+menampilkan_header() {
+    clear
+    echo -e "${PURPLE}"
+    echo -e "██████╗  ██████╗ ██╗  ██╗███████╗███╗   ███╗ ██████╗ ███╗   ██╗"
+    echo -e "██╔══██╗██╔═══██╗██║ ██╔╝██╔════╝████╗ ████║██╔═══██╗████╗  ██║"
+    echo -e "██████╔╝██║   ██║█████╔╝ █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║"
+    echo -e "██╔═══╝ ██║   ██║██╔═██╗ ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║"
+    echo -e "██║     ╚██████╔╝██║  ██╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║"
+    echo -e "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝${NC}"
+    echo -e "${CYAN}═══════════════════════════════════════════════════════════════${NC}"
+}
+
+install_1() {
+    reset
+    menampilkan_header
+    apt install ruby -y
+    gem install lolcat
+    apt install wondershaper -y
+}
 
 REPO="https://raw.githubusercontent.com/remkenceng/pokemon/main/"
 
