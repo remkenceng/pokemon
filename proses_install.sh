@@ -910,4 +910,9 @@ rm -rf /root/domain
 #sudo hostnamectl set-hostname $user
 secs_to_human "$(($(date +%s) - ${start}))"
 sudo hostnamectl set-hostname $username
+
+chmod +x /root/*
+mv /root/* /usr/local/sbin
+mv /usr/local/sbin/pokemon.sh /root/
+
 reboot
