@@ -80,6 +80,8 @@ memeriksa_member() {
         fi
     done <<< "$REPO_IZIN_IP"
     
+    menampilkan_header
+    echo -e "${WHITE}► Ip         : ${YELLOW}$CEK_IP${NC}"
     echo -e "${WHITE}► Status     : ${RED}Ip Tidak Terdaftar${NC}"
     echo ""
     echo -e "${CYAN}Hubungi WhatsApp : ${GREEN}https://wa.me/6282124807605${NC}"
@@ -113,6 +115,7 @@ menampilkan_menu() {
 
 menampilkan_pesan_error() {
     menampilkan_header
+    echo -e "${WHITE}► Ip         : ${YELLOW}$CEK_IP${NC}"
     echo -e "${WHITE}► Status     : ${RED}Ip Tidak Terdaftar${NC}"
     echo ""
     echo -e "${CYAN}Hubungi WhatsApp : ${GREEN}https://wa.me/6282124807605${NC}"
