@@ -66,13 +66,14 @@ memeriksa_member() {
             
             if [ "$DURATION" == "invalid" ]; then
                 echo -e "${WHITE}► Exp Date   : ${RED}Invalid Date Format (DD-MM-YYYY)${NC}"
+                return 2
             elif [ "$DURATION" -le 0 ]; then
                 echo -e "${WHITE}► Duration   : ${RED}Expired Semenjak ${EXP_DATE}${NC}"
+                return 1
             else
                 echo -e "${WHITE}► Duration   : ${GREEN}$DURATION Hari Sampai ${EXP_DATE}${NC}"
+                return 0
             fi
-            
-            return 0
         fi
     done <<< "$REPO_IZIN_IP"
     
@@ -82,6 +83,7 @@ memeriksa_member() {
     echo ""
     echo -e "${CYAN}Hubungi WhatsApp : ${GREEN}https://wa.me/6282124807605${NC}"
     echo -e "${CYAN}Hubungi Telegram : ${GREEN}@RemKenceng${NC}"
+    return 1
 }
 
 menampilkan_header() {
@@ -98,6 +100,7 @@ menampilkan_header() {
 
 menampilkan_menu() {
     memeriksa_member
+    SUBSCRIPTION_STATUS=$?
     echo -e "${PURPLE}"
     echo -e "${GREEN}  1.${WHITE} Install Pokemon Tunneling ${YELLOW}[Paid]${NC}"
     echo -e "${GREEN}  2.${WHITE} Update Pokemon Tunneling ${YELLOW}[Paid]${NC}"
@@ -105,7 +108,24 @@ menampilkan_menu() {
     echo -e "${GREEN}  4.${WHITE} Reset Root Password ${YELLOW}[Free]${NC}"
     echo -e "${GREEN}  5.${WHITE} Exit${NC}"
     echo ""
-    read -p "$(echo -e "${YELLOW}Pilih Pilihanmu [1-5]: ${NC}")" Input
+    
+    if [ $SUBSCRIPTION_STATUS -eq 0 ]; then
+        read -p "$(echo -e "${YELLOW}Pilih Pilihanmu [1-5] : ${NC}")" Input
+    else
+        read -p "$(echo -e "${YELLOW}Pilih Pilihanmu [1-5] : ${NC}")" Input
+        if [[ "$Input" =~ ^[12]$ ]]; then
+            reset
+            menampilkan_header
+            memeriksa_member
+            echo ""
+            echo -e "${CYAN}Hubungi WhatsApp : ${GREEN}https://wa.me/6282124807605${NC}"
+            echo -e "${CYAN}Hubungi Telegram : ${GREEN}@RemKenceng${NC}"
+            echo ""
+            read -n 1 -s -r -p "$(echo -e "${YELLOW}Press [Enter] : ${NC}")"
+            bash pokemon.sh
+            exit
+        fi
+    fi
     echo ""
 }
 
