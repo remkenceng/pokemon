@@ -10,11 +10,15 @@ NC='\033[0m'
 
 REPO="https://raw.githubusercontent.com/remkenceng/pokemon/main/"
 
-if [ "$(id -u)" != "0" ]; then
-    echo -e "${RED}Harus Login Sebagai Root !${NC}" 1>&2
-    sleep 5
-    bash pokemon.sh
-fi
+memeriksa_root() {
+    if [ "$(id -u)" != "0" ]; then
+        echo -e "${RED}Harus Login Sebagai Root !${NC}" 1>&2
+        sleep 5
+        bash pokemon.sh
+    fi
+}
+
+memeriksa_root
 
 apt install ruby -y
 gem install lolcat
