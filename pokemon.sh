@@ -98,11 +98,11 @@ menampilkan_header() {
 menampilkan_menu() {
     memeriksa_member
     echo -e "${PURPLE}"
-    echo -e "${GREEN} 1.${WHITE} Install Pokemon Tunneling ${YELLOW}[Paid]${NC}"
-    echo -e "${GREEN} 2.${WHITE} Update Pokemon Tunneling ${YELLOW}[Paid]${NC}"
-    echo -e "${GREEN} 3.${WHITE} Update Dependencies ${YELLOW}[Free]${NC}"
-    echo -e "${GREEN} 4.${WHITE} Reset Root Password ${YELLOW}[Free]${NC}"
-    echo -e "${GREEN} 5.${WHITE} Exit${NC}"
+    echo -e "${GREEN}  1.${WHITE} Install Pokemon Tunneling ${YELLOW}[Paid]${NC}"
+    echo -e "${GREEN}  2.${WHITE} Update Pokemon Tunneling ${YELLOW}[Paid]${NC}"
+    echo -e "${GREEN}  3.${WHITE} Update Dependencies ${YELLOW}[Free]${NC}"
+    echo -e "${GREEN}  4.${WHITE} Reset Root Password ${YELLOW}[Free]${NC}"
+    echo -e "${GREEN}  5.${WHITE} Exit${NC}"
     echo ""
     read -p "$(echo -e "${YELLOW}Pilih Pilihanmu [1-5]: ${NC}")" Input
     echo ""
