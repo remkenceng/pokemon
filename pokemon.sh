@@ -30,6 +30,7 @@ memeriksa_member() {
         USERNAME_VALID=$(echo "$MATCHING_LINE" | awk '{print $1}')
         echo -e "${WHITE}► Status     : ${GREEN}Ip Terdaftar${NC}"
         echo -e "${WHITE}► Username   : ${PURPLE}$USERNAME_VALID${NC}"
+        echo -e "${WHITE}► Duration   : ${GREEN}$DURATION Hari${NC}"
     else
         echo -e "${WHITE}► Status     : ${RED}Ip Tidak Terdaftar${NC}"
     fi
