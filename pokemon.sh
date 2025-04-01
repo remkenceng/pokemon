@@ -12,31 +12,78 @@ NC='\033[0m'
 CEK_IP=$(curl -sS ipv4.icanhazip.com)
 REPO_IZIN_IP=$(curl -sS https://raw.githubusercontent.com/remkenceng/pokemon/main/izin/ip)
 
-memeriksa_ip() {
-    # Check if CEK_IP exists in any line's third column
-    if ! grep -q "$CEK_IP" <<< "$(echo "$REPO_IZIN_IP" | awk '{print $3}')"; then
-        menampilkan_pesan_error
+# Function to calculate days remaining with DD-MM-YYYY format
+hitung_durasi() {
+    local exp_date="$1"
+    # Convert DD-MM-YYYY to YYYY-MM-DD for calculation
+    local day=$(echo "$exp_date" | cut -d'-' -f1)
+    local month=$(echo "$exp_date" | cut -d'-' -f2)
+    local year=$(echo "$exp_date" | cut -d'-' -f3)
+    local exp_date_std="$year-$month-$day"
+    
+    local today=$(date +%Y-%m-%d)
+    local exp_seconds=$(date -d "$exp_date_std" +%s 2>/dev/null)
+    local today_seconds=$(date -d "$today" +%s)
+    
+    # Check if date conversion was successful
+    if [ -z "$exp_seconds" ]; then
+        echo "invalid"
+        return
     fi
+    
+    local diff=$(( (exp_seconds - today_seconds) / 86400 ))
+    
+    if [ "$diff" -lt 0 ]; then
+        echo "0"
+    else
+        echo "$diff"
+    fi
+}
+
+memeriksa_ip() {
+    # Check all lines for matching IP in column 3
+    while IFS= read -r line; do
+        ip_in_file=$(echo "$line" | awk '{print $3}')
+        if [ "$ip_in_file" == "$CEK_IP" ]; then
+            return 0
+        fi
+    done <<< "$REPO_IZIN_IP"
+    
+    menampilkan_pesan_error
+    return 1
 }
 
 memeriksa_member() {
     echo -e "${CYAN}"
-    echo -e "${WHITE}► Ip         : ${GREEN}$CEK_IP${NC}"
+    echo -e "${WHITE}► Ip         : ${YELLOW}$CEK_IP${NC}"
     
-    # Find the line where the IP matches
-    MATCHING_LINE=$(echo "$REPO_IZIN_IP" | awk -v ip="$CEK_IP" '$3 == ip')
+    # Find all matching lines (in case of duplicates)
+    while IFS= read -r line; do
+        ip_in_file=$(echo "$line" | awk '{print $3}')
+        if [ "$ip_in_file" == "$CEK_IP" ]; then
+            USERNAME_VALID=$(echo "$line" | awk '{print $1}')
+            EXP_DATE=$(echo "$line" | awk '{print $5}')
+            DURATION=$(hitung_durasi "$EXP_DATE")
+            
+            echo -e "${WHITE}► Status     : ${GREEN}Ip Terdaftar${NC}"
+            echo -e "${WHITE}► Username   : ${PURPLE}$USERNAME_VALID${NC}"
+            
+            if [ "$DURATION" == "invalid" ]; then
+                echo -e "${WHITE}► Exp Date   : ${RED}Invalid Date Format (DD-MM-YYYY)${NC}"
+            elif [ "$DURATION" -le 0 ]; then
+                echo -e "${WHITE}► Duration   : ${RED}Expired Semenjak ${EXP_DATE}${NC}"
+            else
+                echo -e "${WHITE}► Duration   : ${GREEN}$DURATION Hari Sampai ${EXP_DATE}${NC}"
+            fi
+            
+            return 0
+        fi
+    done <<< "$REPO_IZIN_IP"
     
-    if [ -n "$MATCHING_LINE" ]; then
-        USERNAME_VALID=$(echo "$MATCHING_LINE" | awk '{print $1}')
-        echo -e "${WHITE}► Status     : ${GREEN}Ip Terdaftar${NC}"
-        echo -e "${WHITE}► Username   : ${PURPLE}$USERNAME_VALID${NC}"
-        echo -e "${WHITE}► Duration   : ${GREEN}$DURATION Hari${NC}"
-    else
-        echo -e "${WHITE}► Status     : ${RED}Ip Tidak Terdaftar${NC}"
-        echo ""
-        echo -e "${CYAN}Hubungi WhatsApp : ${GREEN}https://wa.me/6282124807605${NC}"
-        echo -e "${CYAN}Hubungi Telegram : ${GREEN}@RemKenceng${NC}"
-    fi
+    echo -e "${WHITE}► Status     : ${RED}Ip Tidak Terdaftar${NC}"
+    echo ""
+    echo -e "${CYAN}Hubungi WhatsApp : ${GREEN}https://wa.me/6282124807605${NC}"
+    echo -e "${CYAN}Hubungi Telegram : ${GREEN}@RemKenceng${NC}"
 }
 
 menampilkan_header() {
@@ -70,16 +117,32 @@ menampilkan_pesan_error() {
     echo -e "${WHITE}► Ip         : ${YELLOW}$CEK_IP${NC}"
     
     # Find the line where the IP matches
-    MATCHING_LINE=$(echo "$REPO_IZIN_IP" | awk -v ip="$CEK_IP" '$3 == ip')
+    while IFS= read -r line; do
+        ip_in_file=$(echo "$line" | awk '{print $3}')
+        if [ "$ip_in_file" == "$CEK_IP" ]; then
+            USERNAME_VALID=$(echo "$line" | awk '{print $1}')
+            EXP_DATE=$(echo "$line" | awk '{print $5}')
+            DURATION=$(hitung_durasi "$EXP_DATE")
+            
+            echo -e "${WHITE}► Status     : ${YELLOW}Ip Terdaftar${NC}"
+            echo -e "${WHITE}► Username   : ${PURPLE}$USERNAME_VALID${NC}"
+            
+            if [ "$DURATION" == "invalid" ]; then
+                echo -e "${WHITE}► Exp Date   : ${RED}Invalid Date Format (DD-MM-YYYY)${NC}"
+            elif [ "$DURATION" -le 0 ]; then
+                echo -e "${WHITE}► Duration   : ${RED}Expired Semenjak ${EXP_DATE}${NC}"
+            else
+                echo -e "${WHITE}► Duration   : ${GREEN}$DURATION Hari Sampai ${EXP_DATE}${NC}"
+            fi
+            
+            echo ""
+            read -n 1 -s -r -p "$(echo -e "${YELLOW}Press [Enter] : ${NC}")"
+            bash pokemon.sh
+            return
+        fi
+    done <<< "$REPO_IZIN_IP"
     
-    if [ -n "$MATCHING_LINE" ]; then
-        USERNAME_VALID=$(echo "$MATCHING_LINE" | awk '{print $1}')
-        echo -e "${WHITE}► Status     : ${GREEN}Ip Terdaftar${NC}"
-        echo -e "${WHITE}► Username   : ${PURPLE}$USERNAME_VALID${NC}"
-    else
-        echo -e "${WHITE}► Status     : ${RED}Ip Tidak Terdaftar${NC}"
-    fi
-    
+    echo -e "${WHITE}► Status     : ${RED}Ip Tidak Terdaftar${NC}"
     echo ""
     echo -e "${CYAN}Hubungi WhatsApp : ${GREEN}https://wa.me/6282124807605${NC}"
     echo -e "${CYAN}Hubungi Telegram : ${GREEN}@RemKenceng${NC}"
