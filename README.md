@@ -6,7 +6,7 @@ Developed by @RemKenceng
 Unduh File Utama :
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/remkenceng/pokemon/main/pokemon.sh && chmod +x pokemon.sh && bash pokemon.sh
+wget -q https://raw.githubusercontent.com/remkenceng/pokemon/main/pokemon.sh && chmod +x pokemon.sh && bash pokemon.sh
 ```
 
 ## Usage
