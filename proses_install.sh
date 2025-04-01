@@ -10,27 +10,15 @@ NC='\033[0m'
 
 REPO="https://raw.githubusercontent.com/remkenceng/pokemon/main/"
 
-menampilkan_header() {
-    clear
-    echo -e "${PURPLE}"
-    echo -e "██████╗  ██████╗ ██╗  ██╗███████╗███╗   ███╗ ██████╗ ███╗   ██╗"
-    echo -e "██╔══██╗██╔═══██╗██║ ██╔╝██╔════╝████╗ ████║██╔═══██╗████╗  ██║"
-    echo -e "██████╔╝██║   ██║█████╔╝ █████╗  ██╔████╔██║██║   ██║██╔██╗ ██║"
-    echo -e "██╔═══╝ ██║   ██║██╔═██╗ ██╔══╝  ██║╚██╔╝██║██║   ██║██║╚██╗██║"
-    echo -e "██║     ╚██████╔╝██║  ██╗███████╗██║ ╚═╝ ██║╚██████╔╝██║ ╚████║"
-    echo -e "╚═╝      ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝${NC}"
-    echo -e "${CYAN}═══════════════════════════════════════════════════════════════${NC}"
-}
+if [ "$(id -u)" != "0" ]; then
+    echo "This script must be run as root" 1>&2
+    sleep 5
+    bash pokemon.sh
+fi
 
-install_1() {
-    reset
-    menampilkan_header
-    apt install ruby -y
-    gem install lolcat
-    apt install wondershaper -y
-}
-
-install_1
+apt install ruby -y
+gem install lolcat
+apt install wondershaper -y
 
 start=$(date +%s)
 secs_to_human() {
