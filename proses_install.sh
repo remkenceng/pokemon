@@ -8,6 +8,8 @@ CYAN='\033[1;36m'
 WHITE='\033[1;37m'
 NC='\033[0m'
 
+REPO="https://raw.githubusercontent.com/remkenceng/pokemon/main/"
+
 menampilkan_header() {
     clear
     echo -e "${PURPLE}"
@@ -30,14 +32,10 @@ install_1() {
 
 install_1
 
-REPO="https://raw.githubusercontent.com/remkenceng/pokemon/main/"
-
-####
 start=$(date +%s)
 secs_to_human() {
     echo "Installation time : $((${1} / 3600)) hours $(((${1} / 60) % 60)) minute's $((${1} % 60)) seconds"
 }
-### Status
 function print_ok() {
     echo -e "${OK} ${BLUE} $1 ${FONT}"
 }
