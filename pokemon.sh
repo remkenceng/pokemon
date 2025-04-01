@@ -162,9 +162,7 @@ case $Input in
         ;;
     *)
         menampilkan_header
-        echo "" 
         memeriksa_member
-        echo ""
         echo -e "${YELLOW}Pilihanmu Tidak Tersedia ..... !${NC}"
         echo ""
         read -n 1 -s -r -p "$(echo -e "${YELLOW}Press [Enter] : ${NC}")"
