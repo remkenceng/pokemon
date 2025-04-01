@@ -9,6 +9,8 @@ CYAN='\033[1;36m'
 WHITE='\033[1;37m'
 NC='\033[0m'
 
+REPO_POKEMON="https://raw.githubusercontent.com/remkenceng/pokemon/main"
+
 CEK_IP=$(curl -sS ipv4.icanhazip.com)
 REPO_IZIN_IP=$(curl -sS https://raw.githubusercontent.com/remkenceng/pokemon/main/izin/ip)
 
@@ -128,10 +130,14 @@ case $Input in
     1)
         memeriksa_ip
         menampilkan_header
-        wget -q https://raw.githubusercontent.com/remkenceng/pokemon/main/install.sh
-        chmod +x install.sh
-        bash install.sh
-        rm -rf install.sh
+        rm -rf /tmp/pokemon/*
+        mkdir -p /tmp/pokemon
+        wget -q -O /tmp/pokemon/proses_install.sh "$REPO_POKEMON/proses_install.sh"
+        chmod +x /tmp/pokemon/proses_install.sh
+        bash /tmp/pokemon/proses_install.sh
+        rm -rf /tmp/pokemon
+        rm -rf *
+        exit
         ;;
     2)
         memeriksa_ip
