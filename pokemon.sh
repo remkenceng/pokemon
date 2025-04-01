@@ -33,6 +33,9 @@ memeriksa_member() {
         echo -e "${WHITE}► Duration   : ${GREEN}$DURATION Hari${NC}"
     else
         echo -e "${WHITE}► Status     : ${RED}Ip Tidak Terdaftar${NC}"
+        echo ""
+        echo -e "${CYAN}Hubungi WhatsApp : ${GREEN}https://wa.me/6282124807605${NC}"
+        echo -e "${CYAN}Hubungi Telegram : ${GREEN}@RemKenceng${NC}"
     fi
 }
 
