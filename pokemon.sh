@@ -113,35 +113,6 @@ menampilkan_menu() {
 
 menampilkan_pesan_error() {
     menampilkan_header
-    echo -e "${CYAN}"
-    echo -e "${WHITE}► Ip         : ${YELLOW}$CEK_IP${NC}"
-    
-    # Find the line where the IP matches
-    while IFS= read -r line; do
-        ip_in_file=$(echo "$line" | awk '{print $3}')
-        if [ "$ip_in_file" == "$CEK_IP" ]; then
-            USERNAME_VALID=$(echo "$line" | awk '{print $1}')
-            EXP_DATE=$(echo "$line" | awk '{print $5}')
-            DURATION=$(hitung_durasi "$EXP_DATE")
-            
-            echo -e "${WHITE}► Status     : ${YELLOW}Ip Terdaftar${NC}"
-            echo -e "${WHITE}► Username   : ${PURPLE}$USERNAME_VALID${NC}"
-            
-            if [ "$DURATION" == "invalid" ]; then
-                echo -e "${WHITE}► Exp Date   : ${RED}Invalid Date Format (DD-MM-YYYY)${NC}"
-            elif [ "$DURATION" -le 0 ]; then
-                echo -e "${WHITE}► Duration   : ${RED}Expired Semenjak ${EXP_DATE}${NC}"
-            else
-                echo -e "${WHITE}► Duration   : ${GREEN}$DURATION Hari Sampai ${EXP_DATE}${NC}"
-            fi
-            
-            echo ""
-            read -n 1 -s -r -p "$(echo -e "${YELLOW}Press [Enter] : ${NC}")"
-            bash pokemon.sh
-            return
-        fi
-    done <<< "$REPO_IZIN_IP"
-    
     echo -e "${WHITE}► Status     : ${RED}Ip Tidak Terdaftar${NC}"
     echo ""
     echo -e "${CYAN}Hubungi WhatsApp : ${GREEN}https://wa.me/6282124807605${NC}"
