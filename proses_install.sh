@@ -12,8 +12,9 @@ REPO="https://raw.githubusercontent.com/remkenceng/pokemon/main/"
 
 memeriksa_root() {
     if [ "$(id -u)" != "0" ]; then
-        echo -e "${RED}Harus Login Sebagai Root !${NC}" 1>&2
+        echo -e "${RED}Harus Login Sebagai Root ..... !${NC}" 1>&2
         sleep 5
+        rm -rf /tmp/pokemon/
         bash pokemon.sh
     fi
 }
