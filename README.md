@@ -3,17 +3,16 @@
 Developed by @RemKenceng
 
 ## Installation
-```bash
-## Unduh File Utama :
+Unduh File Utama :
 
+```bash
 wget -qO- https://raw.githubusercontent.com/remkenceng/pokemon/main/pokemon.sh && chmod +x pokemon.sh && bash pokemon.sh
 ```
 
 ## Usage
+Untuk Running Pokemon Menu :
 
 ```bash
-# Untuk Running Pokemon Menu :
-
 bash pokemon.sh
 ```
 
