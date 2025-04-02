@@ -11,7 +11,7 @@ NC='\033[0m'
 if [ "$(basename $0)" != "pokemon.sh" ]; then
     echo "Error! Kamu Harus Menjalankan Dari Script Utama ..... !"
     exit 1
-f
+fi
 
 REPO="https://raw.githubusercontent.com/remkenceng/pokemon/main/"
 
