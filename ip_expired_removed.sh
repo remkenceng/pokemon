@@ -48,10 +48,12 @@ done < "izin/ip"
 if [ "$changed" = true ]; then
     mv "$temp_file" "izin/ip"
     git add izin/ip
+    echo ""
     git commit -m "Menghapus Ip Expired di Tanggal : $today"
     git push
     echo ""
     echo "Ip Berhasil Dihapus Dari Database !"
+    echo ""
 else
     rm "$temp_file"
     echo ""
