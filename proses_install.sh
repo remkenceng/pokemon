@@ -900,7 +900,6 @@ clear
 instal
 echo ""
 history -c
-rm -rf /root/menu
 rm -rf /root/*.zip
 rm -rf /root/*.sh
 rm -rf /root/LICENSE
