@@ -108,8 +108,9 @@ menampilkan_menu() {
     echo -e "${GREEN}  1.${WHITE} Install Pokemon Tunneling ${YELLOW}[Paid]${NC}"
     echo -e "${GREEN}  2.${WHITE} Update Pokemon Tunneling ${YELLOW}[Paid]${NC}"
     echo -e "${GREEN}  3.${WHITE} Update Dependencies ${YELLOW}[Free]${NC}"
-    echo -e "${GREEN}  4.${WHITE} clear Root Password ${YELLOW}[Free]${NC}"
-    echo -e "${GREEN}  5.${WHITE} Exit${NC}"
+    echo -e "${GREEN}  4.${WHITE} Reset Root Password ${YELLOW}[Free]${NC}"
+    echo -e "${GREEN}  5.${WHITE} Tambahkan Ip Pelanggan ${YELLOW}[Owner Only]${NC}"
+    echo -e "${GREEN}  0.${WHITE} Exit${NC}"
     echo ""
     
     if [ $SUBSCRIPTION_STATUS -eq 0 ]; then
@@ -179,6 +180,12 @@ case $Input in
         bash install.sh
         ;;
     5)
+        menampilkan_header
+        wget -q https://raw.githubusercontent.com/remkenceng/pokemon/main/tambahkan_ip.sh
+        chmod +x tambahkan_ip.sh
+        bash tambahkan_ip.sh
+        ;;
+    0)
         menampilkan_header
         clear
         exit 0
