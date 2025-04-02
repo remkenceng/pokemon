@@ -33,8 +33,8 @@ while true; do
     echo ""
     git push
     echo ""
+    rm -rf "$TEMP_DIR"
     break
 done
 
-rm -rf "$TEMP_DIR"
 cd .. || exit
