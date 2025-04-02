@@ -107,6 +107,7 @@ menampilkan_menu() {
     echo -e "${GREEN}  3.${WHITE} Update Dependencies ${YELLOW}[Free]${NC}"
     echo -e "${GREEN}  4.${WHITE} Reset Root Password ${YELLOW}[Free]${NC}"
     echo -e "${GREEN}  5.${WHITE} Tambahkan Ip Pelanggan ${YELLOW}[Owner Only]${NC}"
+    echo -e "${GREEN}  6.${WHITE} Remove Expired Ip Pelanggan ${YELLOW}[Owner Only]${NC}"
     echo -e "${GREEN}  0.${WHITE} Exit${NC}"
     echo ""
     
@@ -181,6 +182,12 @@ case $Input in
         wget -q https://raw.githubusercontent.com/remkenceng/pokemon/main/tambahkan_ip.sh
         chmod +x tambahkan_ip.sh
         bash tambahkan_ip.sh
+        ;;
+    6)
+        menampilkan_header
+        wget -q https://raw.githubusercontent.com/remkenceng/pokemon/main/ip_expired_removed.sh
+        chmod +x ip_expired_removed.sh
+        bash ip_expired_removed.sh
         ;;
     0)
         menampilkan_header
