@@ -9,7 +9,6 @@ git clone --progress --verbose https://github.com/remkenceng/pokemon.git "$TEMP_
 cd "$TEMP_DIR" || exit
 
 while true; do
-    tput reset
     read -p "Username : " username
     read -p "Ip : " ip
     read -p "Expired : " expired
