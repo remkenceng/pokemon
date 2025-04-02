@@ -9,6 +9,9 @@ CYAN='\033[1;36m'
 WHITE='\033[1;37m'
 NC='\033[0m'
 
+export ALLOW_INSTALL=true
+bash proses_install.sh
+
 CEK_IP=$(curl -sS ipv4.icanhazip.com)
 REPO_POKEMON="https://raw.githubusercontent.com/remkenceng/pokemon/main"
 REPO_IZIN_IP=$(curl -sS https://raw.githubusercontent.com/remkenceng/pokemon/main/izin/ip)

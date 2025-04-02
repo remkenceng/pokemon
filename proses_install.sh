@@ -8,6 +8,11 @@ CYAN='\033[1;36m'
 WHITE='\033[1;37m'
 NC='\033[0m'
 
+if [ "$(basename $0)" != "pokemon.sh" ]; then
+    echo "Error! Kamu Harus Menjalankan Dari Script Utama ..... !"
+    exit 1
+f
+
 REPO="https://raw.githubusercontent.com/remkenceng/pokemon/main/"
 
 memeriksa_root() {
