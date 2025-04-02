@@ -13,6 +13,19 @@ while true; do
     read -p "Username : " username
     read -p "Ip : " ip
     read -p "Expired : " expired
+    
+    # Check if IP already exists in the file
+    if grep -q "| $ip |" izin/ip; then
+        existing_entry=$(grep "| $ip |" izin/ip)
+        tput reset
+        echo "Ip Ini Sudah Digunakan Oleh User Ini !"
+        echo ""
+        echo "$existing_entry"
+        echo ""
+        read -p "Press [Enter] : "
+        continue
+    fi
+    
     echo ""
     echo "$username | $ip | $expired" >> izin/ip
     git add izin/ip
