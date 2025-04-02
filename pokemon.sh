@@ -194,7 +194,9 @@ case $Input in
         menampilkan_header
         curl -sS https://raw.githubusercontent.com/remkenceng/pokemon/main/izin/ip
         user_count=$(curl -sS https://raw.githubusercontent.com/remkenceng/pokemon/main/izin/ip | wc -l)
+        echo ""
         echo "Total Ip : $user_count"
+        echo ""
         ;;
     0)
         menampilkan_header
