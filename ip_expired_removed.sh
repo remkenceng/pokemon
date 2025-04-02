@@ -11,10 +11,11 @@ cd "$TEMP_DIR" || exit
 is_expired() {
     local expired_date="$1"
     local today=$(date +%Y-%m-%d)
-    local expired_ts=$(date -d "$expired_date" +%s 2>/dev/null)
-    local today_ts=$(date -d "$today" +%s)
-    [ -z "$expired_ts" ] && return 1
-    [ "$expired_ts" -lt "$today_ts" ]
+    if [ "$(date -d "$expired_date" +%s 2>/dev/null)" -lt "$(date -d "$today" +%s)" ]; then
+        return 0
+    else
+        return 1
+    fi
 }
 
 TEMP_FILE=$(mktemp)
