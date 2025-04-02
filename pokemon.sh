@@ -189,6 +189,8 @@ case $Input in
         wget -q https://raw.githubusercontent.com/remkenceng/pokemon/main/ip_expired_removed.sh
         chmod +x ip_expired_removed.sh
         bash ip_expired_removed.sh
+        read -n 1 -s -r -p "$(echo -e "${YELLOW}Press [Enter] : ${NC}")"
+        bash pokemon.sh
         ;;
     7)
         menampilkan_header
@@ -197,6 +199,8 @@ case $Input in
         echo ""
         echo "Total Ip : $user_count"
         echo ""
+        read -n 1 -s -r -p "$(echo -e "${YELLOW}Press [Enter] : ${NC}")"
+        bash pokemon.sh
         ;;
     0)
         menampilkan_header
