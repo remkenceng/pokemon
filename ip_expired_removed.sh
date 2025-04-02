@@ -30,7 +30,6 @@ done < izin/ip
 mv "$TEMP_FILE" izin/ip
 
 git add izin/ip
-echo ""
 git commit -m "Ip Expired Removed ..... !"
 echo ""
 git push

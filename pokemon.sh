@@ -113,9 +113,9 @@ menampilkan_menu() {
     echo ""
     
     if [ $SUBSCRIPTION_STATUS -eq 0 ]; then
-        read -p "$(echo -e "${YELLOW}Pilih Pilihanmu [1-5] : ${NC}")" Input
+        read -p "$(echo -e "${YELLOW}Pilih Pilihanmu [1-7] : ${NC}")" Input
     else
-        read -p "$(echo -e "${YELLOW}Pilih Pilihanmu [1-5] : ${NC}")" Input
+        read -p "$(echo -e "${YELLOW}Pilih Pilihanmu [1-7] : ${NC}")" Input
         if [[ "$Input" =~ ^[12]$ ]]; then
             clear
             menampilkan_header
