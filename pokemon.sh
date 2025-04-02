@@ -108,7 +108,7 @@ menampilkan_menu() {
     echo -e "${GREEN}  1.${WHITE} Install Pokemon Tunneling ${YELLOW}[Paid]${NC}"
     echo -e "${GREEN}  2.${WHITE} Update Pokemon Tunneling ${YELLOW}[Paid]${NC}"
     echo -e "${GREEN}  3.${WHITE} Update Dependencies ${YELLOW}[Free]${NC}"
-    echo -e "${GREEN}  4.${WHITE} Reset Root Password ${YELLOW}[Free]${NC}"
+    echo -e "${GREEN}  4.${WHITE} clear Root Password ${YELLOW}[Free]${NC}"
     echo -e "${GREEN}  5.${WHITE} Exit${NC}"
     echo ""
     
@@ -117,7 +117,7 @@ menampilkan_menu() {
     else
         read -p "$(echo -e "${YELLOW}Pilih Pilihanmu [1-5] : ${NC}")" Input
         if [[ "$Input" =~ ^[12]$ ]]; then
-            reset
+            clear
             menampilkan_header
             memeriksa_member
             echo ""
@@ -144,7 +144,7 @@ menampilkan_pesan_error() {
     bash pokemon.sh
 }
 
-reset
+clear
 menampilkan_header
 menampilkan_menu
 
@@ -180,7 +180,7 @@ case $Input in
         ;;
     5)
         menampilkan_header
-        reset
+        clear
         exit 0
         ;;
     *)

@@ -9,7 +9,9 @@ WHITE='\033[1;37m'
 NC='\033[0m'
 
 if [ "$(basename $0)" != "pokemon.sh" ]; then
-    echo "Error! Kamu Harus Menjalankan Dari Script Utama ..... !"
+    clear   
+    echo -e "${RED}Error! Kamu Harus Menjalankan Dari Script Utama ..... !${NC}"
+    echo ""
     exit 1
 fi
 
@@ -30,7 +32,7 @@ apt install ruby -y
 gem install lolcat
 apt install wondershaper -y
 
-reset
+clear
 
 start=$(date +%s)
 secs_to_human() {
